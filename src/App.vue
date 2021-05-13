@@ -1,18 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input v-model="color">
+      <v-button
+        button-text="heyвыафываыфваыф"
+        :loading="loading"
+        :color="color"
+        theme=""
+        @click="clickBtn()"
+      />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import VButton from "@/components/UI/vButton";
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    VButton
+  },
+  data() {
+    return {
+      loading: false,
+      color: '#d61313'
+    }
+  },
+  methods: {
+    clickBtn() {
+      this.loading = true
+      // setTimeout(() => { this.loading = false}, 100000)
+    }
+  },
 }
 </script>
 
